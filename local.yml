@@ -1,6 +1,6 @@
 ---
 
-- hosts: localhost
+- hosts: my-hosts-1
   become: yes
   become_method: sudo
   tasks: 
