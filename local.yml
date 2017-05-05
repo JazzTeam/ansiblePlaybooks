@@ -31,10 +31,4 @@
    - name: Build Java App
      command: mvn clean install chdir=/home/ivan/RabbitMQ/source
 
-   #run app
-   - name: Run jar file app
-     command: java -jar r_d-version.jar chdir=/home/ivan/RabbitMQ/source/target/classes
-
- 
-
    
