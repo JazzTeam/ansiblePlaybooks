@@ -1,0 +1,40 @@
+---
+
+- hosts: host1
+  become: yes
+  become_method: sudo
+  tasks: 
+  #installation tasks
+   - name: Install Java 1.8
+     apt: name=openjdk-8-jdk state=latest
+
+   - name: Install Maven
+     apt: name=maven state=latest
+
+   - name: Install Subversion
+     apt: name=subversion state=latest
+
+   - name: Install Erlang
+     apt: name=erlang state=latest
+        
+   - name: Install RabbitMQ
+     apt: name=rabbitmq-server state=latest
+     
+   - name: Apt-get update
+     command: rabbitmq-plugins enable rabbitmq_management
+
+   #checkout repository
+   - name: Checkout Java Web App
+     subversion: repo=https://svn.code.sf.net/p/jazzteamedu/code/TestRabbitWithDrools dest=/home/ivan-server/RabbitMQ/source
+
+   #build app
+   - name: Build Java App
+     command: mvn clean install chdir=/home/ivan/RabbitMQ/source
+
+   #run app
+   - name: Run jar file app
+     command: java -jar r_d-version.jar chdir=/home/ivan/RabbitMQ/source/target/classes
+
+ 
+
+   
