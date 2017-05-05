@@ -27,8 +27,5 @@
    - name: Checkout Java Web App
      subversion: repo=https://svn.code.sf.net/p/jazzteamedu/code/TestRabbitWithDrools dest=/home/ivan-server/RabbitMQ/source
 
-   #build app
-   - name: Build Java App
-     command: mvn clean install chdir=/home/ivan/RabbitMQ/source
 
    
